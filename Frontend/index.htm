@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResumeAI — Check Your Resume Score</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Instrument Serif: editorial italic headline · DM Sans: clean body · JetBrains Mono: data -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="logo-ring"></span>
+      <span class="logo-text">ResumeAI</span>
+    </div>
+    <div class="nav-badge">⚡ Groq · Fast</div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO — typing headline, full viewport
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+
+    <!-- Soft ambient gradient blobs -->
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <!-- THE BIG TYPING HEADLINE -->
+    <div class="headline-wrap">
+      <div class="headline-eyebrow">AI-POWERED RESUME ANALYSIS</div>
+      <h1 class="headline">
+        <span id="typedText"></span><span class="cursor" id="cursor">|</span>
+      </h1>
+      <p class="headline-sub">
+        Upload your PDF · Pick a domain · Get your full ATS audit in seconds.
+        <br/>Score, skill gaps, keywords, action plan — all in one place.
+      </p>
+      <div class="headline-actions">
+        <a href="#tool" class="cta-primary">
+          Analyze My Resume
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="cta-meta">Free · No signup · Instant results</div>
+      </div>
+    </div>
+
+    <!-- Feature strip at bottom of hero -->
+    <div class="hero-strip">
+      <div class="strip-item">
+        <div class="si-num">6</div>
+        <div class="si-label">Tech Domains</div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-item">
+        <div class="si-num">&lt;3s</div>
+        <div class="si-label">Analysis Speed</div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-item">
+        <div class="si-num">100%</div>
+        <div class="si-label">ATS Coverage</div>
+      </div>
+      <div class="strip-div"></div>
+      <div class="strip-item">
+        <div class="si-num">7</div>
+        <div class="si-label">Score Categories</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ANALYZER TOOL
+  ══════════════════════════════════════════ -->
+  <main class="tool" id="tool">
+
+    <!-- ── STEP 1: Domain ── -->
+    <div class="step-block" id="panelDomain">
+      <div class="step-label">
+        <span class="sl-num">01</span>
+        <span class="sl-title">Choose Your Domain</span>
+        <span class="sl-sub">Select the job role you're targeting</span>
+      </div>
+      <div class="domain-grid">
+        <button class="d-card" data-domain="Data Science">
+          <span class="dc-icon">🧠</span>
+          <div class="dc-body">
+            <div class="dc-name">Data Science</div>
+            <div class="dc-tags">Python · ML · TensorFlow · Pandas</div>
+          </div>
+          <span class="dc-check">✓</span>
+        </button>
+        <button class="d-card" data-domain="MERN Stack">
+          <span class="dc-icon">⚛️</span>
+          <div class="dc-body">
+            <div class="dc-name">MERN Stack</div>
+            <div class="dc-tags">React · Node · MongoDB · Express</div>
+          </div>
+          <span class="dc-check">✓</span>
+        </button>
+        <button class="d-card" data-domain="Data Analytics">
+          <span class="dc-icon">📊</span>
+          <div class="dc-body">
+            <div class="dc-name">Data Analytics</div>
+            <div class="dc-tags">SQL · Power BI · Tableau · Excel</div>
+          </div>
+          <span class="dc-check">✓</span>
+        </button>
+        <button class="d-card" data-domain="Java Fullstack">
+          <span class="dc-icon">☕</span>
+          <div class="dc-body">
+            <div class="dc-name">Java Fullstack</div>
+            <div class="dc-tags">Spring Boot · JPA · React · MySQL</div>
+          </div>
+          <span class="dc-check">✓</span>
+        </button>
+        <button class="d-card" data-domain="Python Developer">
+          <span class="dc-icon">🐍</span>
+          <div class="dc-body">
+            <div class="dc-name">Python Developer</div>
+            <div class="dc-tags">Django · FastAPI · Flask · SQLAlchemy</div>
+          </div>
+          <span class="dc-check">✓</span>
+        </button>
+        <button class="d-card" data-domain="DevOps Engineer">
+          <span class="dc-icon">⚙️</span>
+          <div class="dc-body">
+            <div class="dc-name">DevOps Engineer</div>
+            <div class="dc-tags">Docker · K8s · Terraform · CI/CD</div>
+          </div>
+          <span class="dc-check">✓</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── STEP 2: Upload ── -->
+    <div class="step-block" id="panelUpload">
+      <div class="step-label">
+        <span class="sl-num">02</span>
+        <span class="sl-title">Upload Resume</span>
+        <span class="sl-sub">PDF only · max 10MB</span>
+      </div>
+
+      <div class="dropzone" id="dropzone">
+        <div class="dz-inner">
+          <div class="dz-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="12" y1="18" x2="12" y2="13"/>
+              <polyline points="9 15 12 12 15 15"/>
+            </svg>
+          </div>
+          <p class="dz-title">Drag & drop your resume here</p>
+          <p class="dz-hint">or <u>click to browse</u></p>
+          <div class="dz-name hidden" id="dzName">
+            <span class="dz-name-icon">📄</span>
+            <span id="dzNameText">resume.pdf</span>
+          </div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf" hidden/>
+      </div>
+
+      <button class="analyze-btn" id="analyzeBtn" disabled>
+        <span id="btnLabel">Analyze Resume →</span>
+        <div id="btnSpinner" class="spinner hidden"></div>
+      </button>
+
+      <div class="progress-block hidden" id="progressBlock">
+        <div class="pb-track"><div class="pb-fill" id="progFill"></div></div>
+        <div class="pb-text" id="progStatus">Initializing...</div>
+      </div>
+
+      <div class="error-block hidden" id="errorBanner">
+        <span class="eb-icon">⚠</span>
+        <span id="errorText">An error occurred.</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════
+         RESULTS
+    ══════════════════════════════ -->
+    <div class="results hidden" id="results">
+
+      <!-- Score + verdict -->
+      <div class="r-top">
+        <div class="r-ring-wrap">
+          <svg viewBox="0 0 180 180" class="r-ring-svg">
+            <circle class="rr-bg" cx="90" cy="90" r="74"/>
+            <circle class="rr-fg" id="ringFg" cx="90" cy="90" r="74"
+              stroke-dasharray="0 465" transform="rotate(-90 90 90)"/>
+          </svg>
+          <div class="r-ring-center">
+            <div class="r-score" id="ringScore">--</div>
+            <div class="r-score-lbl">ATS SCORE</div>
+          </div>
+        </div>
+        <div class="r-meta">
+          <div class="r-verdict" id="rVerdict">--</div>
+          <div class="r-meta-grid">
+            <div class="rmg-item">
+              <span class="rmg-k">Domain</span>
+              <span class="rmg-v" id="mDomain">--</span>
+            </div>
+            <div class="rmg-item">
+              <span class="rmg-k">Experience</span>
+              <span class="rmg-v" id="mExp">--</span>
+            </div>
+            <div class="rmg-item">
+              <span class="rmg-k">Keywords Found</span>
+              <span class="rmg-v" id="mKw">--</span>
+            </div>
+          </div>
+          <div class="r-summary">
+            <div class="rs-label">AI SUMMARY</div>
+            <div class="rs-text" id="rSummary">--</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section scores -->
+      <div class="r-card">
+        <div class="rc-title">Section Scores</div>
+        <div id="sectionBars" class="bar-list"></div>
+      </div>
+
+      <!-- Skills -->
+      <div class="r-card">
+        <div class="rc-title">Skills Quality</div>
+        <div id="skillsGrid" class="sk-grid"></div>
+      </div>
+
+      <!-- 3 columns -->
+      <div class="r-three">
+        <div class="r-card">
+          <div class="rc-title rc-green">✅ Strengths</div>
+          <ul id="strengthsList" class="tag-list tl-g"></ul>
+        </div>
+        <div class="r-card">
+          <div class="rc-title rc-red">⚠️ Missing Sections</div>
+          <ul id="missingSections" class="tag-list tl-r"></ul>
+        </div>
+        <div class="r-card">
+          <div class="rc-title rc-amber">🔑 Missing Keywords</div>
+          <ul id="missingKeywords" class="tag-list tl-a"></ul>
+        </div>
+      </div>
+
+      <!-- Keywords found -->
+      <div class="r-card">
+        <div class="rc-title">🟢 Keywords Found</div>
+        <div id="kwFound" class="kw-cloud"></div>
+      </div>
+
+      <!-- Action plan -->
+      <div class="r-card">
+        <div class="rc-title">💡 Action Plan</div>
+        <div id="actionList" class="action-list"></div>
+      </div>
+
+      <div class="reset-row">
+        <button id="resetBtn" class="reset-btn">← Analyze Another Resume</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <span class="footer-brand">ResumeAI</span>
+    <span>Powered by Groq LLM · FastAPI · Vanilla JS</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

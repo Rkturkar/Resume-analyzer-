@@ -1,0 +1,12 @@
+python-dotenv
+fastapi
+uvicorn[standard]
+python-multipart
+pdfplumber
+requests
+websockets
+langchain
+openai
+youtube-transcript-api
+chromadb
+python-dotenv
