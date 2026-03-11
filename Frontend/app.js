@@ -2,7 +2,7 @@
 // app.js — ResumeAI (Groq-powered)
 // ═══════════════════════════════════════════
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://resume-analyzer-w44t.onrender.com";
 
 // ── State ──
 let selectedDomain = null;
